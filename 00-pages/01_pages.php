@@ -4,8 +4,7 @@
      <!-- **-->
     <?php
         $variable1= "PHP 7 (titre qui est dans une variable)";
-
-    ?>
+   ?>
 
 
     <html lang="fr">
@@ -28,14 +27,30 @@
                 $variable2 = "MySQL";
                 echo $variable2;
                 echo " </p>"; 
-                print $variable2
+                print $variable2;
                 ?>
             
             <hr>
+
+            <?="<blockquote> $variable2, $variable2, on entend le $variable2 </blockquote>";?>
          <!-- **-->
          <!-- Voici une syntaxe simplifiée pour écrire en php, qui remplace l'ouverture de php et éventuellement un echo -->
          <!-- **-->
             <?="<blockquote>$variable2, $variable2, on entend le coucou</blockquote>";?>
+            <hr>
+            <?php print_r($GLOBALS);?>
+            <hr>
+            <?php print_r($_COOKIE);?>
+            <hr>
+            <?php print_r($_ENV);?>
+            <hr>
+            <?php print_r($_SERVER["HTTP_ACCEPT_LANGUAGE"]);?>
+            <hr>
+            <?php print_r($_SERVER["HTTP_HOST"]);?>
+            <hr>
+            <?php print_r($_SERVER["PHP_SELF"]);?>
+
+
 
         </body>
     </html>
