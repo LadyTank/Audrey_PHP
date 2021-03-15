@@ -12,14 +12,15 @@
     <!-- mes styles -->
     <link rel="stylesheet" href="../css/style.css">
     </head>
-    <?php
-    require '../inc/navbar.inc.php';
-?>
-    <body>
     
-        <div class="jumbotron bg-warning text-dark">
+    <body>
+    <?php
+            require '../inc/navbar.inc.php';
+            ?>
+        <div class="jumbotron bg-secondary text-light">
+            
             <h1 class="display-4 mb-4">Cours PHP 7 - Chaine de caractère</h1>
-            <p class="lead font-weight-bold">Les chaînes de caractères sont avec les nombres les types de données les plus manipulés sur un site web. De surcroît, dans les échanges entre le client et le serveur au moyen de formulaires, toutes les données sont transmises sous forme de chaînes, d'où leur importance.</p>
+            <p class="lead">Les chaînes de caractères sont avec les nombres les types de données les plus manipulés sur un site web. De surcroît, dans les échanges entre le client et le serveur au moyen de formulaires, toutes les données sont transmises sous forme de chaînes, d'où leur importance.</p>
         </div> <!--fin de jumbotron-->
 
     <!-- **************************-->

@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer bg-secondary">
       <div class="container-fluid">
         <span class="text-light">Cours PHP 7 <?php  
         setlocale(LC_ALL,'fr_FR');

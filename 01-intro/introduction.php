@@ -17,7 +17,7 @@
     require '../inc/navbar.inc.php';
 ?>
     <body>
-        <div class="jumbotron">
+        <div class="jumbotron bg-secondary text-light">
             <h1 class="display-4">Cours PHP 7 - Introduction</h1>
             <p class="lead">PHP signifie aujourd'hui Php Hypertext Preprocessor </p>
         </div> <!--fin de jumbotron-->
@@ -25,8 +25,8 @@
     <!-- Contenu Principal -->
     <!-- **************************-->
     
-        <main class="container">
-            <div class="row">
+        <main class="container bg-white p-5 mb-5">
+            <div class="row mb-3">
                 <div class="col-sm-12 col-md-4">
                     <p>Pour parvenir à la réalisation de sites dynamiques nous allons aborder successivement les points suivants :</p>
                     <ul>

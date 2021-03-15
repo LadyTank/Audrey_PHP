@@ -13,14 +13,14 @@
     <!-- mes styles -->
     <link rel="stylesheet" href="../css/style.css">
     </head>
+    
+    <body>
     <?php
     require '../inc/navbar.inc.php';
 ?>
-    <body>
-    
-        <div class="jumbotron bg-warning text-dark">
+        <div class="jumbotron bg-secondary text-light">
             <h1 class="display-4 mb-4">Cours PHP 7 - Types de données</h1>
-            <p class="lead font-weight-bold">Dans PHP, il n'existe pas de déclaration explicite du type d'une variable lors de sa création. Même PHP 7 reste un langage pauvrement typé comparé à Java ou au C.</p>
+            <p class="lead">Dans PHP, il n'existe pas de déclaration explicite du type d'une variable lors de sa création. Même PHP 7 reste un langage pauvrement typé comparé à Java ou au C.</p>
         </div> <!--fin de jumbotron-->
 
     <!-- **************************-->

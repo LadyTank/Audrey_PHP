@@ -13,21 +13,21 @@
     <!-- mes styles -->
     <link rel="stylesheet" href="../css/style.css">
     </head>
-    <?php
+   
+    <body>
+     <?php
     require '../inc/navbar.inc.php';
 ?>
-    <body>
-    
-        <div class="jumbotron bg-warning text-dark">
+        <div class="jumbotron bg-secondary text-light">
             <h1 class="display-4 mb-4">Cours PHP 7 - Variables</h1>
-            <p class="lead font-weight-bold">Une variable est le conteneur d'une valeur d'un des types utilisés par PHP (entiers, flottants, chaînes de caractères, tableaux, booléens, objets, ressource ou NULL).</p>
+            <p class="lead">Une variable est le conteneur d'une valeur d'un des types utilisés par PHP (entiers, flottants, chaînes de caractères, tableaux, booléens, objets, ressource ou NULL).</p>
         </div> <!--fin de jumbotron-->
 
     <!-- **************************-->
     <!-- Contenu Principal -->
     <!-- **************************-->
     
-        <main class="container">
+        <main class="container bg-white p-4">
             <div class="row">
                 <div class="col-sm-12 col-md-4 pd-4 text-dark">
                     <h2>Les variables</h2>
