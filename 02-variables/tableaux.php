@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col-sm-12 ">
                     <h2>1- Les tableaux</h2>
-                    <p>Texte à venir....</p>
+                    <p>Un tableau appelé array en anglais est une variable améliorée dans laquelle on stocke une multitude de valeurs. Ces valeurs peuvent être de n'importe quel type. Elle possedent un indice dont la numérotation commence à 0.<p>
                     <blockquote>
 
 
@@ -77,7 +77,7 @@
 
                 <div class="col-sm-12">
                     <h2>3 - Les tableaux multi-dimentionnel</h2>
-                    <p>Un tableau multi-dimentionnel est un tableau qui contiendra une suite de tableau.</p>
+                    <p>Un tableau multi-dimentionnel est un tableau qui contiendra une suite de tableaux. Chaque tableau présente une "dimension".</p>
                     <?php 
                     $tableau_multi = array (
                         0 => array (
@@ -106,6 +106,7 @@
                     // Pour afficher Jean Lamy
                     echo $tableau_multi[0]['prenom'].' '.$tableau_multi[1]['nom'];// On entre d'abord l'indice 0 puis dans le sous tableau on va à l'indice prénom
                     echo '<hr>';
+
                     // Pour parcourir le tableau multidimentionel, on peut faire une boucle FOR car ses indices sont numériques
                     echo "<ul>";
                     for ( $i=0; $i < count($tableau_multi); $i++) {
@@ -113,6 +114,18 @@
                     }
                     echo "</ul>";
 
+                    // OU une boucle foreach en passant en variable les contenu de chaque indice du tableau et en ciblant les indices nommés des sous-tableaux associatifs. Dans une boucle foreach dans ce genre de situation, il faut toujours un indice
+                    echo '<p>';
+                    foreach ( $tableau_multi as $indice => $acteur2) {
+                        echo ($acteur2['prenom'])."<br> ";
+                        
+                        // echo $tableau_multi[$indice]['prenom']." ";
+                    }
+
+                    echo '</p>';
+                    // appeler PI qui est une constante php
+                    echo M_PI;
+                    echo pi();
 
 
                     ?> 

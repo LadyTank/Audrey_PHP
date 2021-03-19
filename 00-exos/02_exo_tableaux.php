@@ -7,20 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <title>Cours PHP 7 - les tableaux</title>
+    <title>Exo PHP 7 - les tableaux</title>
     <!-- mes styles -->
     <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
 <!-- navigation en include  -->
     <div class="jumbotron container">
-        <h1 class="display-4">Cours PHP 7 - les tableaux</h1>
+        <h1 class="display-4">Exo PHP 7 - les tableaux</h1>
         <hr class="my-4">
     </div>
     <!-- =================================== -->
     <!-- Contenu principal -->
     <!-- =================================== -->
-    <main class="container bg-white">
+    <main class="container bg-white mb-5 pb-4">
         <div class="row">
             <div class="col-sm-12">
                 <?php
@@ -42,7 +42,7 @@
                 jeprintr($tableau1);
 
                 //mini exo avec une boucle foreach, parcourez les deux tableaux de cette page et affichez les dans deux ul
-                
+
                 echo "<ul>";
                 foreach ($tableau2 as $pays) {
                     // echo "<li>";
@@ -58,6 +58,8 @@
                 }
                 echo "</ul>";
                 // nouveau tableau nouvel exercice
+                // - 1 declarez un tableau associatif $contacts avec les indices suivants : prenom, nom, email, tel et vous y mettez les valeurs correspondant à un seul contact
+
                 $contacts = array(
                     'prenom'=> 'Victor', 
                     'nom' => 'Hugo',
@@ -93,6 +95,40 @@
                 echo '</ul>';
 
                 jeprintr($contacts);
+                
+                // 4 - exo, faire un tableau $tailles avec des tailles de vetements du small au xl et les afficher avec une boucle foreach dans une ul
+
+                $tailles=["small", "medium", "large","extra-large"];
+                echo "<ul>";
+                foreach ($tailles as $indice => $stock) {
+                    echo "<li> ".$indice. " pour " .$stock. "</li>";
+                }
+                echo "</ul><hr>";
+
+                // ou en tableau associatif, on force les indices
+
+                $tailles2=["S"=>"small", "M"=>"medium", "L"=>"large","XL"=>"extra-large"];
+                echo "<ul>";
+                foreach ($tailles2 as $indice2 => $size) {
+                    echo "<li> ".$indice2. " pour " .$size. "</li>";
+                }
+                echo "</ul><hr>";
+
+
+                
+                // 5- Puis afficher dans un select avec boucle foreach
+                
+                echo '<form method=\"GET\" action=\"page.html\">';
+                echo '<label for=\"taille\"> Choisis une taille : </label> ';
+                echo '<select name=\"taille\">';
+
+                foreach ($tailles2 as $indice2){
+                    echo '<option value=\"$indice\">'.$indice2.'</option>';
+                }
+            
+                echo '</select></form>';
+            
+
 
 
 

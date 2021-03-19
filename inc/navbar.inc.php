@@ -63,8 +63,19 @@
                     04- GET & POST
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="../04-GET&POST/method_get.php">GET</a>
+                            <a class="dropdown-item" href="../04-GET&POST/01_method_get.php">GET</a>
+                            <a class="dropdown-item" href="../04-GET&POST/02_method_get.php">GET page 2 </a>
                             <a class="dropdown-item" href="../04-GET&POST/method_post.php">POST</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    05 - PDO
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../05-PDO/01_pdo.php">PDO</a>
+                         
                         </div>
                     </li>
         
