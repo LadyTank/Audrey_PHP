@@ -29,52 +29,44 @@
             <!-- puis on fabriquera ensemble un fichier .txt pour stocker les informations de form -->
 
             <form method="POST" action="03_form_traitement.php" class="p-2 m-2">
-            <div class="form-group">
-                        <label for="prenom">Prénom*</label>
-                        <input type="text" class="form-control" name="prenom" id="prenom" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="nom">Nom de famille*</label>
-                        <input type="text" class="form-control" name="nom" id="nom" required>
+                <div class="form-group">
+                    <label for="prenom">Prénom*</label>
+                    <input type="text" class="form-control" name="prenom" id="prenom" required>
+                </div>
 
-                    </div>
+                <div class="form-group">
+                    <label for="nom">Nom de famille*</label>
+                    <input type="text" class="form-control" name="nom" id="nom" required>
 
-                    <div class="form-group">
-                        <label for="email">email*</label>
-                        <input type="email" class="form-control" name="email" id="email" required>
+                </div>
 
-                    </div>
+                <div class="form-group">
+                    <label for="email">email*</label>
+                    <input type="email" class="form-control" name="email" id="email" required>
 
-                    <div class="form-group">
-                        <label for="adresse">Adresse postale</label>
-                        <input type="text" class="form-control" name="adresse" id="adresse">
-                    </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="codePostal">Code postal</label>
-                        <input type="number" class="form-control" name="codePostal" id="codePostal" max="999999" min="10000">
-                    </div>
+                <div class="form-group">
+                    <label for="adresse">Adresse postale</label>
+                    <input type="text" class="form-control" name="adresse" id="adresse">
+                </div>
 
-                    <div class="form-group">
-                        <label for="ville">Ville</label>
-                        <input type="text" class="form-control" name="ville" id="ville">
-                    </div>
+                <div class="form-group">
+                    <label for="codePostal">Code postal</label>
+                    <input type="number" class="form-control" name="codePostal" id="codePostal" max="999999" min="10000">
+                </div>
 
-                    <button type="submit" class="btn btn-small btn-primary">Envoyer</button>
-            
+                <div class="form-group">
+                    <label for="ville">Ville</label>
+                    <input type="text" class="form-control" name="ville" id="ville">
+                </div>
+
+                <button type="submit" class="btn btn-small btn-primary">Envoyer</button>
+        
             </form>
 
-                <?php
-                 
-
-
-
-
-                ?>
-            </div>
-            <!-- fin col -->
-        </div>
-        <!-- fin row -->
+            </div><!-- fin col -->
+        </div><!-- fin row -->
     </main>
     <!-- footer en include -->
     <?php require '../inc/footer.inc.php'; ?>

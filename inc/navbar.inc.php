@@ -12,7 +12,9 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="../00-exos/01_exo.php" target="_blank">01_exos</a>
-                            <a class="dropdown-item" href="../00-exos/02_exo_tableaux.php" target="_blank">02_exos_tableaux</a>
+                            <a class="dropdown-item" href="../00-exos/02_exo_tableaux.php" target="_blank">02_exo_tableaux</a>
+                            <a class="dropdown-item" href="../00-exos/03_exo_formulaire.php" target="_blank">03_exo_formulaire</a>
+                            <a class="dropdown-item" href="../00-exos/05_exo_GET.php" target="_blank">05_exo_GET</a>
 
                         </div>
                     </li>
@@ -75,6 +77,28 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="../05-PDO/01_pdo.php">PDO</a>
+                         
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    06 - Cookie
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../06-cookies/01_cookie.php">Cookie</a>
+                         
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    07 - Session
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../07-session/01_session.php">Session</a>
+                            <a class="dropdown-item" href="../07-session/02_session.php">Session 2</a>
+
                          
                         </div>
                     </li>

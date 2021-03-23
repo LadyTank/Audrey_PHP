@@ -1,5 +1,7 @@
 <?php require_once '../inc/functions.php'; ?> 
 <?php require_once '../inc/db_config.php'; ?> 
+<?php require_once '../inc/db_connexion.php'; ?> 
+
 
 <!doctype html>
 <html lang="fr">
@@ -36,19 +38,19 @@
 
                 // se connecter à une BDD en local
                 // conseil appeler la variable par pdo puis le début du nom de la BDD, ici entreprise
-                    try {
-                        $options=
-                        [
-                        PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
-                        PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
-                        ];
+                    // try {
+                    //     $options=
+                    //     [
+                    //     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+                    //     PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
+                    //     ];
 
-                        $pdoENT = new PDO($DB_HEB, $DB_USER, $DB_PASS, $options); //les variables appelée d'un fichier inc db_config.php avec les informations complètes, (info hebergeur, info connexion utilisateur, info mdp, optionnellement info d'autres variables comme $options dans ce cas)
+                    //     $pdoENT = new PDO($DB_HEB, $DB_USER, $DB_PASS, $options); //les variables appelée d'un fichier inc db_config.php avec les informations complètes, (info hebergeur, info connexion utilisateur, info mdp, optionnellement info d'autres variables comme $options dans ce cas)
                         
-                        }
-                        catch (PDOException $pe){
-                            echo "Erreur" .$pe->getMessage(); //avoir le detail du problème de connexion à l'ecran
-                        }
+                    //     }
+                    //     catch (PDOException $pe){
+                    //         echo "Erreur" .$pe->getMessage(); //avoir le detail du problème de connexion à l'ecran
+                    //     }
                     
 
                     // 'mysql:host=localhost;dbname=entreprise', //adresse de mon serveur local, en premier le driver mysql (IBN, ORACLE, ODBC,..), puis le nom du serveur, puis le nom de la BDD
@@ -94,7 +96,7 @@
 
                         // jevardump($requete);
 
-                        echo "Dernier id générée en BDD : " .$pdoENT->LastInsertId(); //affiche le nombre d'entrées dernierement
+                        echo "Nombre des derniers ID sur la BDD : " .$pdoENT->LastInsertId(); //affiche le nombre d'entrées dernierement
                     ?> 
             </div>
 
@@ -126,7 +128,7 @@
 
                     //exo - Afficher en tableau les informations complète concernant l'employé fabrice
 
-                    $ligne = $requete->fetch(PDO::FETCH_ASSOC);
+                    $ligne = $requete->fetch(PDO::FETCH_ASSOC); // PDO::FETCH_ASSOC n'est pas obligatoire, il sert à créer un seul tableau associatif, donc avec des indices renommé, si on faitun fetch(); vide, ça fonctionne en créant un double tableau, avec indice numérique et indice associatif
                     jevardump($ligne);
 
                     echo "<p>Prénom : " .$ligne['prenom']. " " .$ligne['nom']. "</p>";
@@ -201,43 +203,113 @@
                 //  2 et 3
 
 
-                    echo "<table class=\"table table-striped p-3 mt-5\"><tbody><thead><th>Nom</th><th>Prénom</th><th>ID employés</th><th>Sexe</th><th>Date d'embauche</th><th>Service</th><th>Salaire</th></thead>";
+                    // echo "<table class=\"table table-striped p-3 mt-5\"><tbody><thead><th>Nom</th><th>Prénom</th><th>ID employés</th><th>Sexe</th><th>Date d'embauche</th><th>Service</th><th>Salaire</th></thead>";
 
-                    while ($ligne = $requete->fetch(PDO::FETCH_ASSOC)){
+                    // while ($ligne = $requete->fetch(PDO::FETCH_ASSOC)){
 
-                        if ($ligne['sexe']==='f') {
-                        echo "<tr><td> Mme " .$ligne['nom']. "</td><td>" .$ligne['prenom']. "</td><td>" .$ligne['id_employes']. "</td><td>" .$ligne['sexe']. "</td><td>" .$ligne['date_embauche']. "</td><td>" .$ligne['service']. "</td><td>" .$ligne['salaire']. "</td></tr>";}
-                        else {
-                            echo "<tr><td> Mr " .$ligne['nom']. "</td><td>" .$ligne['prenom']. "</td><td>" .$ligne['id_employes']. "</td><td>" .$ligne['sexe']. "</td><td>" .$ligne['date_embauche']. "</td><td>" .$ligne['service']. "</td><td>" .$ligne['salaire']. "</td></tr>";
+                    //     if ($ligne['sexe']=='f') {
+                    //     echo "<tr><td> Mme " .$ligne['nom']. "</td><td>" .$ligne['prenom']. "</td><td>" .$ligne['id_employes']. "</td><td>" .$ligne['sexe']. "</td><td>" .$ligne['date_embauche']. "</td><td>" .$ligne['service']. "</td><td>" .$ligne['salaire']. "</td></tr>";}
+                    //     else {
+                    //         echo "<tr><td> M. " .$ligne['nom']. "</td><td>" .$ligne['prenom']. "</td><td>" .$ligne['id_employes']. "</td><td>" .$ligne['sexe']. "</td><td>" .$ligne['date_embauche']. "</td><td>" .$ligne['service']. "</td><td>" .$ligne['salaire']. "</td></tr>";
+                    //     }
+
+                    // }
+
+                    // echo "</tbody></table>";
+
+                    // OU
+
+                    echo "<table class=\"table table-info table-striped\">";
+                    echo "<thead><tr><th scope=\"col\">ID</th><th scope=\"col\">Prénom</th><th scope=\"col\">Nom</th><th scope=\"col\">Sexe</th><th scope=\"col\">Service</th><th scope=\"col\">Date d'embauche</th><th scope=\"col\">Salaire</th></tr></thead>";
+                    while($ligne = $requete->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<tr>";
+                        echo "<td>#". $ligne['id_employes']. "</td>";   
+                        echo "<td>";
+                        if($ligne['sexe'] == 'f') {
+                            echo "Mme ";
+                        }else {
+                            echo "M. ";
                         }
-
+                        echo $ligne['prenom']. "</td>";
+                        echo "<td>". $ligne['nom']. "</td>";
+                        echo "<td>". $ligne['sexe']. "</td>";
+                        echo "<td>". $ligne['service']. "</td>";
+                        echo "<td>".date('d/m/Y',strtotime($ligne['date_embauche'])). "</td>";
+                        echo "<td>". number_format($ligne['salaire'], 2, ',', ' '). " €</td>";
+                        echo "</tr>";
                     }
+                    echo "</table>";
+                    
+                    // ou avec foreach
+                        echo "<table class=\"table table-success table-striped\">";
+                        foreach ( $pdoENT->query( " SELECT * FROM employes ORDER BY sexe DESC, nom ASC " ) as $infos ) { //$employe étant un tableau on peut le parcourir avec une foreach. La variable $infos prend les valeurs successivement à chaque tour de boucle
+                        // jevardump($infos);
+                        echo "<tr>";
+                        echo "<td>";
+                        if ( $infos['sexe'] == 'f') {
+                            echo "<span class=\"badge badge-secondary\">Mme ";
+                        } else {
+                            echo "<span class=\"badge badge-warning\">M. ";
+                        } echo $infos['nom']. " " .$infos['prenom']. "</span></td>";
+                        echo "<td>" .$infos['service']. " </td>";
+                        
+                        // Notation date en français
+                        echo "<td>" .strftime('%d/%m/%Y',strtotime($infos['date_embauche'])). " </td>";
+                        // ou echo "<td>" .date('d/m/Y',strtotime($infos['date_embauche'])). " </td>";
 
-                    echo "</tbody></table>";
+                        // Notation format français
+                        $nombre_format_francais = number_format($infos['salaire'], 2, ',', ' ');
+                        echo "<td>" .$nombre_format_francais. " €</td>";
+                        echo "</tr>";
+                        }
+                        echo "</table>";
+                ?>
+            </div>
+
+            <div class="col-sm-12">
+                <h2>05 - Requête préparées avec <code>prepare()</code></h2>
+                <p>Les requêtes préparées sont préconisées si vous executez plusieurs fois la même requête, ainsi vous eviterez au SGBD de répéter toutes les phrases, analyses, interprétations exécution etc... >> on gagne en performance</p>
+                <p>Les requêtes préparées sont utile pour nettoyer les données et se prémunir des injections de type SQL (tentative de piratage) cf. 09-securité</p>
+
+                <?php 
+                // une requête préparée se réalise en 3 étapes
+				$nom = 'Grand';//ici j'ai l'info que je cherche dans une variable je cherche un résultat ex. je cherche "Grand"
+
+				// 1/ on prépare la requête
+				$resultat = $pdoENT->prepare(" SELECT * FROM employes WHERE nom = :nom "); // a/ prepare permet de préparer la requête sans l'exécuter b/:nom est un marqueur qui est vide (comme une boîte vide) et qui attend une valeur c/ $resultat est pour le moment un objet PDOstatement
+
+				// 2/ on lie le marqueur 
+				$resultat->bindParam( ':nom', $nom );// bindParam permet de lier la marqueur à la variable :nom à une variable $nom on lie les paramètres
+				// $resultat->bindValue( ':nom', 'titi' );// si on a besoin de lier le marqueur à une valeur fixe...
+
+				// 3/ puis on exécute la requête
+				$resultat->execute(); // permet d'exécuter toute la requête
+				$employe = $resultat->fetch( PDO::FETCH_ASSOC );
+				// jevardump($employe);	
+            	echo $employe['prenom'] . ' ' . $employe['nom']. ' -  service : ' . $employe['service'] . '<br>';
+
+                echo "<hr>";
+				//prepare() et boucle 
+                $sexe = "f"; // début de requete pour afficher que les femmes
+				$requete = $pdoENT->prepare( " SELECT * FROM employes WHERE sexe = :sexe" ); 
+                $requete->bindParam(':sexe', $sexe); // bindParam permet d'associer
+				$requete->execute();
+				$nombre_employes = $requete->rowCount();
+				// jevardump($nombre_employes);
+				while ( $ligne = $requete->fetch( PDO::FETCH_ASSOC ) ) {
+						echo "<p>Nom : " .$ligne['prenom']. " " .$ligne['nom']." travaille au service " .$ligne['service']."</p>";
+                }
+
+                // REPRENDRE MARDI, requête préparée sans bindParam
 
                 ?> 
-
             </div>
-            
         </div><!-- fin row -->
 
         <div id="scroll_to_top">
             <a href="#top"><img src="../img/top-100x100.png" alt="Retourner en haut" /></a>
         </div>
 
-<script>
-    jQuery(function(){
-        $(function () {
-            $(window).scroll(function () { //Fonction appelée quand on descend la page
-                if ($(this).scrollTop() > 200 ) {  // Quand on est à 200pixels du haut de page,
-                    $('#scrollUp').css('right','10px'); // Replace à 10pixels de la droite l'image
-                } else { 
-                    $('#scrollUp').removeAttr( 'style' ); // Enlève les attributs CSS affectés par javascript
-                }
-            });
-        });
-    });
-</script>
         
     </main>
     <!-- footer en include -->

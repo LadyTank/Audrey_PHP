@@ -1,5 +1,5 @@
 <?php
-$DB_HEB = 'mysql:host=localhost;dbname=entreprise';
-$DB_USER = 'root';
-$DB_PASS = '';
+$db_heb = 'mysql:host=localhost;dbname=entreprise';
+$db_user = 'root';
+$db_pass = '';
 ?>
