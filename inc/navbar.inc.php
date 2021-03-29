@@ -11,6 +11,8 @@
                     00-exos
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../00-exos/00_bibliotheque.php" target="_blank">00-exo-bibliotheque</a>
+                            <a class="dropdown-item" href="../00-exos/00_connexion.php" target="_blank">00-exo-connexion</a>
                             <a class="dropdown-item" href="../00-exos/01_exo.php" target="_blank">01_exos</a>
                             <a class="dropdown-item" href="../00-exos/02_exo_tableaux.php" target="_blank">02_exo_tableaux</a>
                             <a class="dropdown-item" href="../00-exos/03_exo_formulaire.php" target="_blank">03_exo_formulaire</a>
@@ -18,6 +20,7 @@
 
                         </div>
                     </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     00-pages
@@ -26,8 +29,11 @@
                             <a class="dropdown-item" href="../00-pages/01_pages.php" target="_blank">01_pages</a>
                             <a class="dropdown-item" href="../00-pages/02_pages.php" target="_blank">02_pages</a>
                             <a class="dropdown-item" href="../00-pages/03_pages.php" target="_blank">03_pages</a>
+                            <a class="dropdown-item" href="../00-pages/04_constantes_predefinies.php" target="_blank">04_constantes_predefinies</a>
+
                         </div>
                     </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     01-intro
@@ -37,6 +43,7 @@
                             <a class="dropdown-item" href="../01-intro/introduction.php">Introduction</a>
                         </div>
                     </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     02-variables
@@ -46,9 +53,9 @@
                             <a class="dropdown-item" href="../02-variables/tableaux.php">tableaux</a>
                             <a class="dropdown-item" href="../02-variables/types.php">types</a>
                             <a class="dropdown-item" href="../02-variables/variable.php">variable</a>
-                            
                         </div>
                     </li>
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     03-conditions
@@ -100,6 +107,20 @@
                             <a class="dropdown-item" href="../07-session/02_session.php">Session 2</a>
 
                          
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    08 - Sécurité
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../08-securite/01_dialogue.php">01 - Dialogue</a>
+                            <a class="dropdown-item" href="../08-securite/02_employes.php">02 - Employés insertion</a>
+                            <a class="dropdown-item" href="../08-securite/02_employes_supprimer.php">02 - Employés suppression</a>
+                            <a class="dropdown-item" href="../08-securite/02_fiche_employe.php">02 - Fiche employé</a>
+
+
                         </div>
                     </li>
         

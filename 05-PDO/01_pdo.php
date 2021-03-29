@@ -300,7 +300,22 @@
 						echo "<p>Nom : " .$ligne['prenom']. " " .$ligne['nom']." travaille au service " .$ligne['service']."</p>";
                 }
 
-                // REPRENDRE MARDI, requête préparée sans bindParam
+                echo "<hr>";
+
+                // Requête préparée sans bindParam
+                $resultat = $pdoENT->prepare(" SELECT * FROM employes WHERE prenom = :prenom AND nom = :nom"); // préparation de la requête, attribution des marqueurs
+
+                $resultat->execute(array(
+                    ':nom' => 'Thoyer',
+                    ':prenom' => 'Amandine' // on peut se passer de bindParam
+                ));
+
+                jevardump($resultat);
+                $employe = $resultat->fetch(PDO::FETCH_ASSOC); // on va chercher les info avec fetch()
+                jevardump($employe);
+
+                echo $employe['prenom']. " " .$employe['nom']. " est au service " .$employe['service']. " et gagne " .$employe['salaire']. " €.";
+
 
                 ?> 
             </div>
