@@ -240,7 +240,7 @@
                     }
                     echo "</table>";
                     
-                    // ou avec foreach
+                    // ou avec foreach qui n'utilise pas fetch mais query pour recuperer plusieurs demandes
                         echo "<table class=\"table table-success table-striped\">";
                         foreach ( $pdoENT->query( " SELECT * FROM employes ORDER BY sexe DESC, nom ASC " ) as $infos ) { //$employe étant un tableau on peut le parcourir avec une foreach. La variable $infos prend les valeurs successivement à chaque tour de boucle
                         // jevardump($infos);
@@ -292,7 +292,7 @@
 				//prepare() et boucle 
                 $sexe = "f"; // début de requete pour afficher que les femmes
 				$requete = $pdoENT->prepare( " SELECT * FROM employes WHERE sexe = :sexe" ); 
-                $requete->bindParam(':sexe', $sexe); // bindParam permet d'associer
+                $requete->bindParam(':sexe', $sexe); // bindParam permet d'associer les marqueurs
 				$requete->execute();
 				$nombre_employes = $requete->rowCount();
 				// jevardump($nombre_employes);
@@ -315,8 +315,6 @@
                 jevardump($employe);
 
                 echo $employe['prenom']. " " .$employe['nom']. " est au service " .$employe['service']. " et gagne " .$employe['salaire']. " €.";
-
-
                 ?> 
             </div>
         </div><!-- fin row -->

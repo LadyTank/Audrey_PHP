@@ -150,13 +150,8 @@
                         // Supprimer une information dans une cellule de la BDD se fait par modification
                         // $pdoDIA->exec('DELETE FROM commentaire  WHERE id_commentaire = 7');
                         $pdoDIA->exec('UPDATE commentaire SET pseudo = \'\' WHERE id_commentaire = 7');
-                    
-                        
-                    
                     ?> </div>
                 </div>  <!--fin row-->
-               
-
             </main>
 
 

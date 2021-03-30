@@ -63,7 +63,7 @@ require_once '../inc/db_connexion.php'; ?>
     ?>
             <!-- Début jumbotron -->
             <div class="jumbotron container">
-                <h1 class="display-4">COURS PHP 7 - exercice employés</h1>
+                <h1 class="display-4">COURS PHP 7 - Interface de gestion de BDD</h1>
                 <hr class="my-4">
             </div> <!--fin de jumbo-->
 
@@ -83,7 +83,7 @@ require_once '../inc/db_connexion.php'; ?>
 
                     echo "<table class=\"table table-info table-striped p-4\">";
                     echo "<thead><tr><th scope=\"col\">ID</th><th scope=\"col\">Prénom</th><th scope=\"col\">Nom</th><th scope=\"col\">Sexe</th><th scope=\"col\">Service</th><th scope=\"col\">Date d'embauche</th><th scope=\"col\">Salaire</th><th scope=\"col\">Fiche</th></tr></thead>";
-                    while($ligne = $requete->fetch(PDO::FETCH_ASSOC)) {
+                    while($ligne = $requete->fetch(PDO::FETCH_ASSOC)) { // passe le resultat dans un tableau associatif
                         echo "<tr>";
                         echo "<td>#". $ligne['id_employes']. "</td>";   
                         echo "<td>";
@@ -110,7 +110,7 @@ require_once '../inc/db_connexion.php'; ?>
 
                     $nbr_employes = $requete->rowCount();
 
-                    echo "<p>Il y a " .$nbr_employes. " employés dans la base de données.</p>";
+                    echo "<p class=\" text-center\">Il y a " .$nbr_employes. " employés dans la base de données.</p>";
                     
                     ?>
   
