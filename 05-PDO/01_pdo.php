@@ -151,7 +151,6 @@
                 <h2>4 - Faire des requêtes avec <code>query()</code> et afficher plusieurs résultats</h2>
 
                 <?php 
-
                     echo "<h3>Exercice : afficher le nombre d'employé dans la base de données </h3>";
 
                     //SELECT * FROM employes
@@ -161,8 +160,7 @@
                     $nbr_employes = $requete->rowCount(); // cette méthode rowCount() permet de compter le nbr de rangées (d'enregistrements) retournées par la requête
 
                     echo "<p>Il y a " .$nbr_employes. " employés dans la base de données.</p><hr>";
-                
-                    
+                   
                     // comme nous avons plusieurs résultats dans $requete, nous devons faire une boucle pour les parcourir
                     // fetch() va chercher la ligne de l'ensemble des résultats à chaque tour de boucle, et le transforme en objet. la boucle while permet de faire avancer le curseur dans l'objet. quand il arrive à la fin, fetch() retourne FALSE et la boucle s'arrête
                     while ( $ligne = $requete->fetch(PDO::FETCH_ASSOC)){

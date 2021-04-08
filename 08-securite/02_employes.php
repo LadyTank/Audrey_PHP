@@ -177,19 +177,12 @@ require_once '../inc/db_connexion.php'; ?>
 
                         <button type="submit" class="btn btn-small btn-warning">Envoyer</button>
 
-                    </form>
-                    <!-- fin de formulaire -->
+                    </form> <!-- fin de formulaire -->
                     
                     </div> <!--fin col-->
                 </div> <!--fin de row-->
-                
-               
 
             </main>
-
-
-
-
 
         <!-- Optional JavaScript; choose one of the two! -->
 

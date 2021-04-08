@@ -19,32 +19,23 @@ catch (PDOException $pe){
     }
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////////
+//  Pour le visuel de la fiche à la reception de $_get id_livre, lecture de la table livre
 if(isset($_GET['id_livre'])) { 
     $resultat = $pdoBIB->prepare( "SELECT * FROM livre WHERE id_livre = :id_livre" );
     $resultat->execute(array(
         ':id_livre' => $_GET['id_livre']
     ));
 
-if ($resultat->rowCount() == 0 ) { 
-    header('location:00_bibliotheque.php'); 
-    exit(); 
-}
-
 $fiche = $resultat->fetch(PDO::FETCH_ASSOC); //declaration de la variable demandant à la requete de $resultat d'aller chercher à la BDD
-
-
-} else { 
-header('location:00_bibliotheque.php'); // header nous envoie vers une autre page
-exit(); // on arrête le script               
 } 
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// gérer les modifications
-
-if (!empty( $_POST )) {
+// Insertion d'une location dans la table emprunt
+if (!empty( $_POST['id_livre'] )) {
     $_POST[ 'id_livre' ] = htmlspecialchars($_POST[ 'id_livre' ]);
     $_POST[ 'id_abonne' ] = htmlspecialchars($_POST[ 'id_abonne' ]);
     $_POST[ 'date_sortie' ] = htmlspecialchars($_POST[ 'date_sortie' ]);
-    jeprintr($_POST);
+    // jeprintr($_POST);
 
     $resultat = $pdoBIB->prepare( "INSERT INTO emprunt (id_livre, id_abonne, date_sortie) VALUES (:id_livre, :id_abonne, :date_sortie)");
 
@@ -53,6 +44,8 @@ if (!empty( $_POST )) {
         ':id_abonne' => $_POST[ 'id_abonne' ],
         ':date_sortie' => $_POST[ 'date_sortie' ],
     ));
+
+
     // header( 'location:00_bibliotheque.php');
     // exit();
 } // fin du if empty
@@ -73,109 +66,62 @@ if (!empty( $_POST )) {
         <body>
             <!-- Début jumbotron -->
             <div class="jumbotron container">
-                <h1 class="display-4">Visualisation des locations d'un livre identifié</h1>
-                <p class="lead">Visualiser</p>
+                <h1 class="display-4">Fiche et Location d'un livre identifié</h1>
+                <p class="lead"></p>
                 <hr class="my-4">
             </div> <!--fin de jumbo-->
+  
+            <div class="container">
+                <div class="row mx-auto">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="card text-center alert alert-danger border border-danger p-5 mx-auto" style="width: 18rem;">
+                            <h5 class= "p-3">Fiche Livre ID : <?php echo $fiche['id_livre'];?> </h5>
+                            <ul class="list-group list-group-flush border border-danger ">
+                                <li class="list-group-item">
+                                <?php 
+                                echo "Auteur : <br>".$fiche['auteur'];
+                                ?> 
+                                </li>
+                                <li class="list-group-item">
+                                <?php 
+                                echo "Titre : <br>".$fiche['titre'];
+                                ?> 
+                                </li>
+                            </ul>
+                        </div> <!--fin de card-->
+                    </div>
 
-          
-            <div class="row mb-4">
-                <div class="card text-center m-auto alert alert-danger border border-danger" style="width: 18rem;">
-                    <h5 class= "p-3">Fiche Livre ID : <?php echo $fiche['id_livre'];?> </h5>
-                    <ul class="list-group list-group-flush border border-danger ">
-                        <li class="list-group-item">
-                        <?php 
-                        echo "Auteur : ".$fiche['auteur'];
-                        ?> 
-                        </li>
-                        <li class="list-group-item">
-                        <?php 
-                        echo "Titre : ".$fiche['titre'];
-                        ?> 
-                        </li>
-                    </ul>
-                </div> <!--fin de card-->
-            </div> <!--fin de col-->
-
-            <div class="row">
-                <div class="col-sm-12">
-                    <h2 class="bg-warning text-center">Toutes les locations</h2>
-                    <?php 
-                // 1
-                    $requete = $pdoBIB->query(" SELECT * FROM emprunt ");
-                    // $requete->bindParam(':id_livre', $_POST['id_livre']);
-
-                //  2 et 3
-
-                    echo "<table class=\"table table-info table-striped p-4\">";
-                    echo "<thead><tr><th scope=\"col\">ID_emprunt</th><th scope=\"col\">ID_livre</th><th scope=\"col\">id_abonne</th><th scope=\"col\">date de sortie</th><th scope=\"col\">date de rendu</th></tr></thead>";
-                    while($ligne = $requete->fetch(PDO::FETCH_ASSOC)) {
-                        echo "<tr>";
-                        echo "<td>#". $ligne['id_emprunt']. "</td>";   
-                        echo "<td>#". $ligne['id_livre']. "</td>";   
-                        echo "<td>".$ligne['id_abonne']. "</td>";
-                        echo "<td>". $ligne['date_sortie']. "</td>";
-                        echo "<td>".$ligne['date_rendu']."</td>";
-                        echo "</tr>";
-                    }
-                    echo "</table>";
-                    ?>
-
-                </div><!--fin col-->
-            </div> <!--fin de row -->
-
-            <div class="row">
-                    <div class="col-sm-12 col-md-5 p-4 text-center m-auto">
-                        <h2 class="bg-warning text-center p-4">Entrée d'une nouvelle location</h2>
-
+                    <div class="col-sm-12 col-md-6 p-4 text-center m-auto">
+                        <h2 class="bg-warning text-center p-4">Espace location</h2>
+            
                         <!-- début de formulaire -->
                         <form method="POST" action="" class="p-5 m-2">
-
+            
                             <div class="form-group">
                                 <label for="id_livre">ID livre</label>
                                 <input type="text " class="form-control text-right" name="id_livre" id="id_livre" value="<?php echo $_GET['id_livre']; ?>">
                             </div>
-
+            
                             <div class="form-group">
                                 <label for="id_abonne">ID abonné</label>
                                 <input type="text " class="form-control text-right" name="id_abonne" id="id_abonne" >
                             </div>
-
+            
                             <div class="form-group">
                                 <label for="date_sortie">Date de sortie</label>
                                 <input type="date" class="form-control text-right" name="date_sortie" id="date_sortie" >
                             </div>
-
-                            <button type="submit" class="btn btn-small btn-warning">Location</button>
-
-                        </form><!-- fin de formulaire --> 
-                    </div> <!--fin col-->
-                </div> <!--fin de row -->
-
-                    <!-- <div class="col-sm-12 col-md-5 p-4 text-center m-auto">
-                        <h2 class="bg-warning text-center p-4">Retour d'une location</h2>
-                        <form method="POST" action="" class="p-5 m-2">
-                            <div class="form-group">
-                                <label for="id_emprunt">ID emprunt</label>
-                                <input type="text " class="form-control text-right" name="id_emprunt" id="id_emprunt" >
-                            </div>
-
-                            <div class="form-group">
-                                <label for="date_rendu">Date de retour</label>
-                                <input type="date" class="form-control text-right" name="date_rendu" id="date_rendu" >
-                            </div>
-
-                            <button  type="submit" class="btn btn-small btn-warning">Retour</button>
-
-                        </form>
-
-                    </div> 
-                </div> fin de row-->
             
+                            <button type="submit" class="btn btn-small btn-warning">Location</button>
+            
+                        </form><!-- fin de formulaire --> 
+                        <button type="button" class="btn btn-small btn-success"><a href="00_retour_location.php?id_livre= <?php echo $fiche['id_livre']; ?>">Restitution</a></button>
 
-
-
-
+                    </div> <!--fin col-->
+                        
+                </div><!--fin de row -->
+                
+            </div><!--fin de container -->
 
         <!-- Optional JavaScript; choose one of the two! -->
 

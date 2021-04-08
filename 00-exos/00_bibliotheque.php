@@ -56,14 +56,13 @@ if ( !empty($_POST )) {
 
             <div class="col-sm-12 container">
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 col-md-8 mx-auto">
                         <h2 class="bg-warning text-center">Tous les livres</h2>
                         <?php 
                     // 1
                         $requete = $pdoBIB->query(" SELECT * FROM livre ORDER BY titre");
 
                     //  2 et 3
-
                         echo "<table class=\"table table-info table-striped p-4\">";
                         echo "<thead><tr><th scope=\"col\">ID_livre</th><th scope=\"col\">Auteur</th><th scope=\"col\">Titre</th><th scope=\"col\">Location</th></tr></thead>";
                         while($ligne = $requete->fetch(PDO::FETCH_ASSOC)) {
@@ -78,14 +77,13 @@ if ( !empty($_POST )) {
 
                         $nbr_livres = $requete->rowCount();
 
-                        echo "<p>Il y a " .$nbr_livres. " livres dans la base de données.</p>"; 
+                        echo "<p class=\"text-center\">Il y a " .$nbr_livres. " livres dans la base de données.</p>"; 
                         ?>
     
                     </div> <!--fin de col -->
                 </div> <!--fin de row -->
 
                 <div class="row">
-
                     <div class="col-sm-12 col-md-5 p-4 text-center m-auto">
                     <!-- Donc il faut un formulaire HTML avec action et method; action reste vide si nous insérons grâce à cette même page et POST va envoyer les informations du FORM dans la superglobale $_POST -->
 
@@ -101,22 +99,19 @@ if ( !empty($_POST )) {
                         <div class="form-group">
                             <label for="titre">Titre</label>
                             <input type="text" class="form-control text-right" name="titre" id="titre" >
-
                         </div>
 
                         <button type="submit" class="btn btn-small btn-warning">Envoyer</button>
 
-                    </form>
-                    <!-- fin de formulaire -->
-                    
+                    </form> <!-- fin de formulaire -->
                     </div> <!--fin col-->
                 </div> <!--fin de row-->
 
-            </div>
+                <?php 
 
+                ?> 
 
-
-
+            </div><!--fin de container-->
 
         <!-- Optional JavaScript; choose one of the two! -->
 

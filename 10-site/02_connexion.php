@@ -32,7 +32,7 @@ require_once 'inc/init.php';
        <!-- ********************************-->
     <main class="container bg-white m-4 mx-auto p-4">
         <div class="row">
-            <div class="col-sm-12 col-md-8 border border-danger mx-auto m-4 p-4">
+            <div class="col-sm-12 col-md-8 mx-auto m-4 p-4">
                 <h1 class="p-5">Connectez-vous</h1>
                 <form method="POST" action="" class="p-5 m-2 border border-danger alert alert-danger">
                         <div class="form-group p-2"> <!-- pseudo -->
@@ -45,7 +45,7 @@ require_once 'inc/init.php';
                             <small class='bg-alert text-white'>ne jamais divulguer votre mot de passe à un tier</small>
                         </div>
                         <div class="form-group"><!-- bouton envoyer -->
-                            <button type="submit" class="btn btn-small btn-warning mt-3">CONNEXION</button>
+                            <button type="submit" class="btn btn-small btn-warning mt-3 p-2">CONNEXION</button>
                         </div>
  
                         <p class="mt-5">Connectez-vous pour administer "La Boutique"</p>

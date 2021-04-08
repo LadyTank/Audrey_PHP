@@ -91,9 +91,9 @@ if (!empty($_POST)) { // Si des données sont en POST
 
     <!-- Mes styles -->
     <link href="css/style2.css" rel="stylesheet">
-  </head>
+    </head>
 
-  <body>
+    <body>
        <!-- ********************************-->
        <!-- CONTENU PRINCIPAL -->
        <!-- ********************************-->
@@ -158,6 +158,7 @@ if (!empty($_POST)) { // Si des données sont en POST
                         </div>
 
                         <div class="form-group text-center"><!-- bouton envoyer -->
+                            <button type="button" class="btn btn-small btn-success mt-3"><a href="02_connexion.php"> Se connecter</a></button>
                             <button type="submit" class="btn btn-small btn-warning mt-3">S'inscrire</button>
                         </div>
                         <div class="form-group text-center"><!-- bouton reseat formulaire -->
