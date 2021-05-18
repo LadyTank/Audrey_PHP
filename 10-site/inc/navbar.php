@@ -10,7 +10,7 @@
         <div class="navbar-collapse collapse justify-content-end" id="navbar">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link m-4" href="index.php">Accueil</a>
+                    <a class="nav-link m-4" href="<?php echo RACINE_SITE . 'index.php'; ?>">Accueil</a>
                 </li>
                 <li class="nav-item dropdown">
 
@@ -18,7 +18,7 @@
                         Bienvenue <?php echo $_SESSION['membre']['prenom']; ?></a>
 
                     <ul class="dropdown-menu bg-light " aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item " href="05_profil.php">Mon profil</a></li>
+                        <li><a class="dropdown-item " href="<?php echo RACINE_SITE . '05_profil.php'; ?>">Mon profil</a></li>
                         <li><a class="dropdown-item" href="02_connexion.php?action=deconnexion">Se déconnecter</a></li>
                     </ul>
                 </li>
