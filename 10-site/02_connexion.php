@@ -3,7 +3,7 @@ require_once 'inc/init.php';
 $message = '';
 // 5 VÉRIFIER QUE L'ON A BIEN CELA DANS LEURS PAGES
 //2- Déconnexion de l'internaute
-jeprint_r($_GET);
+// jeprint_r($_GET);
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') { // si existe action dans l'url et que sa valeur est "deconnexion" on peut sortir c'est que le membre veut se déconnecter 
     unset($_SESSION['membre']); // on supprime le membre de la session (tout le contenu du tableau membre)
     $message = '<div class="alert alert-primary">Vous êtes déconnecté.</div>';
@@ -14,7 +14,7 @@ if (estConnecte()) { // si membre déjà connecté on le renvoie vers son profil
     exit(); // pour quitter le script header() est une fonction prédéfinie
 }
 // 1- Traitement du formulaire de connexion
-jeprint_r($_POST);
+// jeprint_r($_POST);
 if (!empty($_POST)) { // si le formulaire est envoyé
     // validation du formulaire 
     if (empty($_POST['pseudo']) || empty($_POST['mdp'])) { // si le chmap pseudo est vide ou la chmap mdp est vide.
@@ -27,7 +27,7 @@ if (!empty($_POST)) { // si le formulaire est envoyé
         if ($resultat->rowCount() == 1) { //Si il y une ligne dans la requête c'est que le pseudo est en BDD sinon 
             // traitement du mot de passe 
             $membre = $resultat->fetch(PDO::FETCH_ASSOC); // on fetch l'objet $resultat en un tableau associatif qui contient toutes les informations du membre. 
-            jeprint_r($membre);
+            // jeprint_r($membre);
             if (password_verify($_POST['mdp'], $membre['mdp'])) { // si le hash du mdp de la bdd correspond au mdp du formulaire, alors password_verify retourne true
                 $_SESSION['membre'] = $membre; // nous créons une session avec (une session est un fichier sur le serveur) avec les informations du membre provenant de la BDD )
                 // redirection du membre vers son profil 
@@ -44,7 +44,7 @@ if (!empty($_POST)) { // si le formulaire est envoyé
 // require_once 'inc/header.php';
 echo $message; //pour afficher le message lors de la connexion
 echo $contenu; //pour affciher les autres messages
-jeprint_r($_SESSION);
+// jeprint_r($_SESSION);
 ?>
 <!doctype html>
 <html lang="fr">
@@ -76,7 +76,7 @@ jeprint_r($_SESSION);
                 <button class="btn btn-sm btn-primary btn-block mt-2" type="submit">Connexion</button>
                 <p class="mt-5 mb-3 text-muted">Connectez-vous pour administrer "La Boutique"</p>
             </form>
-            <p class="small">Vous n'êtes pas inscrit ? <a href="01_inscription.php">Inscrivez-vous ici.</a></p>
+            <p class="small">Vous n'êtes pas inscrit ? <a href="01_inscription.php">Inscrivez-vous ici.</a> - <a href="">Retour sur le site</a></p>
         </div>
     </main>
     <!-- Optional JavaScript; choose one of the two! -->

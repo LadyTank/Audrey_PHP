@@ -2,6 +2,11 @@
 require_once 'inc/init.php';
 
 // jeprint_r($_SESSION); 
+
+// Accès à la page quand on est autorisé, connexion membre obligatoie
+if (!estConnecte()) {
+  header('location:02_connexion.php'); // renvoie à la page de connexion
+}
 ?>
 
 <!doctype html>
@@ -22,6 +27,9 @@ require_once 'inc/init.php';
 </head>
 
 <body>
+  <?php
+  include 'inc/navbar.php';
+  ?>
   <!-- ********************************-->
   <!-- CONTENU PRINCIPAL -->
   <!-- ********************************-->
