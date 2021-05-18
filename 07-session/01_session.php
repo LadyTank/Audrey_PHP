@@ -36,7 +36,3 @@ session_destroy(); // suppresion totale de la session et du fichier de session /
 // echo '<pre>';
 // print_r($_SESSION);
 // echo '</pre>';
-
-
-
-?> 

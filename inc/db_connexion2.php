@@ -12,4 +12,3 @@ try {
 catch (PDOException $pe){
     echo "Erreur" .$pe->getMessage(); //avoir le detail du problème de connexion à la BDD à l'ecran
     }
-?> 

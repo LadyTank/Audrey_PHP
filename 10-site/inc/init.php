@@ -19,4 +19,3 @@ $contenu = ''; // déclaration d'une variable pour introduire une variable vide
 
 // ///////// 5 - INCLUSION DES FONCTIONS ///////// //
  require_once 'functions.php';
-?> 

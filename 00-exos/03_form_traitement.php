@@ -18,4 +18,3 @@
     fwrite ($file, $donneeformulaire);
 
     } // fin de if empty
-?>

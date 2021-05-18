@@ -24,4 +24,3 @@ jeprint_r($requete);
 // $requete = $pdoSITE->query(" SELECT * FROM membre");
 // $ligne = $requete->fetch(PDO::FETCH_ASSOC);
 // echo $ligne['pseudo']; // POUR AFFICHER EN RESULTAT QUE LE PREMIER
-?> 
