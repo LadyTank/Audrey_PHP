@@ -4,7 +4,7 @@ require_once 'inc/init.php';
 jeprint_r($_SESSION);
 // require_once 'inc/header.php';
 
-// Accès à la page quand on est autorisé, connexion membre obligatoie
+// Accès à la page quand on est autorisé, connexion membre obligatoire
 if (!estConnecte()) {
     header('location:02_connexion.php'); // renvoie à la page de connexion
 }
@@ -26,7 +26,7 @@ if (!estConnecte()) {
 
 <body>
     <?php
-    include 'inc/navbar.php';
+    include 'inc/navbarNEW.php';
     ?>
 
     <main class="container bg-white m-4 mx-auto p-4">
@@ -37,9 +37,11 @@ if (!estConnecte()) {
             <?php
             if (estAdmin()) {
                 echo '<p>Vous êtes un administrateur</p>';
+                echo '<a class="btn btn-secondary" href=" ' . RACINE_SITE . 'admin/index.php"> Admin, boutique</a>';
             } else {
                 echo '<p>Vous êtes un utilisateur</p>';
             }
+
             ?>
             <hr>
             <h3>Informations de profil</h3>

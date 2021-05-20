@@ -28,7 +28,7 @@ if (!estConnecte()) {
 
 <body>
     <?php
-    include 'inc/navbar.php';
+    include 'inc/navbarNEW.php';
     ?>
     <!-- ********************************-->
     <!-- CONTENU PRINCIPAL -->
