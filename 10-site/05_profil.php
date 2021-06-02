@@ -25,9 +25,7 @@ if (!estConnecte()) {
 </head>
 
 <body>
-    <?php
-    include 'inc/navbarNEW.php';
-    ?>
+
 
     <main class="container bg-white m-4 mx-auto p-4">
         <div class="col-sm-12 col-md-8 col-lg-6 border border-success mx-auto m-4 p-4">

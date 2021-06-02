@@ -46,7 +46,7 @@
 
             <div class="col-sm-12 col-md-6">
                 <h2> 2 - La boucle DO... WHILE</h2>
-                <p class="lead">Avec l'instruction do... while, la condition n'est évaluée qu'après une première cexécution des instructions du bloc compris entre do et while.</p>
+                <p class="lead">Avec l'instruction do... while, la condition n'est évaluée qu'après une première exécution des instructions du bloc compris entre do et while.</p>
 
                 <?php
                 $n2 = 1; //initialisation de la variable 1

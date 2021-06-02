@@ -4,7 +4,7 @@ require_once 'inc/init.php';
 // $contenu est dans la page init.php
 
 if (!empty($_POST)) { // Si des données sont en POST
-    jeprint_r($_POST);
+    // jeprint_r($_POST);
     // GESTION DES DONNEES POST ENVOYEES
     // strlen pour mesurer la longueur, le nombre de caractères // isset veut dire il est etablit
     if (!isset($_POST['pseudo']) || strlen($_POST['pseudo']) < 4 || strlen($_POST['pseudo']) > 20) {
@@ -79,6 +79,12 @@ if (!empty($_POST)) { // Si des données sont en POST
         } // fin du if ... else
     } // fin empty $contenu
 } // fin du if !empty $_POST
+
+
+// envoi d'email suite à l'inscription
+
+$entete = "From: Site Boutique <audrey-saulnier.fr>\r\n"; // adresse email ovh qui sert à l'envoie de mail
+
 ?>
 
 <!doctype html>

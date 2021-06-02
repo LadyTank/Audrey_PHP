@@ -25,11 +25,13 @@ if (!empty($_POST)) { // si le formulaire est envoyé
         // requête en BDD les informations du membre pour le pseudo fourni par l'internaute
         $resultat = executeRequete(" SELECT * FROM membre WHERE pseudo = :pseudo", array(':pseudo' => $_POST['pseudo']));
         if ($resultat->rowCount() == 1) { //Si il y une ligne dans la requête c'est que le pseudo est en BDD sinon 
+
             // traitement du mot de passe 
             $membre = $resultat->fetch(PDO::FETCH_ASSOC); // on fetch l'objet $resultat en un tableau associatif qui contient toutes les informations du membre. 
             // jeprint_r($membre);
             if (password_verify($_POST['mdp'], $membre['mdp'])) { // si le hash du mdp de la bdd correspond au mdp du formulaire, alors password_verify retourne true
-                $_SESSION['membre'] = $membre; // nous créons une session avec (une session est un fichier sur le serveur) avec les informations du membre provenant de la BDD )
+                $_SESSION['membre'] = $membre; // nous créons une session avec (une session est un fichier sur le serveur avec les informations du membre provenant de la BDD )
+
                 // redirection du membre vers son profil 
                 header('location:05_profil.php');
                 exit();
